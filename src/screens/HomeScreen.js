@@ -5,11 +5,11 @@ import { Locations, Categories, SubCategories } from '../components';
 import { constants } from '../constants/strings';
 import downIcon from '../assets/downIcon.png';
 import { connect } from 'react-redux';
-import { setCategories, setSubCategories, setLocation } from '../actions';
-
+import { setCategories, setSubCategories, setLocation, clearLocation, clearCategories } from '../actions';
+import globalStyles from '../constants/globalStyles';
 
 const HomeScreen = (props) => {
-    const { catData, setCategories, setSubCategories, setLocation, location } = props;
+    const { catData, setCategories, setSubCategories, setLocation, location, clearLocation, clearCategories } = props;
     const { categories, subCategories } = catData;
     const [isLocVisible, setIsLocVisible] = useState(false);
     const [isSubCatVisible, setIsSubCatVisible] = useState(false);
@@ -27,13 +27,23 @@ const HomeScreen = (props) => {
     const storeLocation = (location) => {
         setLocation(location);
     }
+
+    const handleReset = () => {
+        clearLocation();
+        clearCategories();
+    }
     
     const renderHeader = () => {
         return (
+            <View style={[globalStyles.spaceBetweenRow, styles.border]}>
             <TouchableOpacity style={styles.header} onPress={() => setIsLocVisible(true)}>
                 <Text style={styles.boldTxt}>{location ? location : constants.location.selectLocation}</Text>
                 <Image source={downIcon} style={styles.icon} />
             </TouchableOpacity>
+            <TouchableOpacity onPress={handleReset}>
+            <Text style={styles.btnTxt}>{constants.landing.reset}</Text>
+            </TouchableOpacity>
+            </View>
         )
     }
 
@@ -84,4 +94,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { setCategories, setSubCategories, setLocation })(HomeScreen);
+export default connect(mapStateToProps, { setCategories, setSubCategories, setLocation, clearLocation, clearCategories })(HomeScreen);

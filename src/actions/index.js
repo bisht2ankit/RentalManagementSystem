@@ -1,8 +1,10 @@
 export {
     setCategories,
-    setSubCategories
+    setSubCategories,
+    clearCategories
 } from './categoryActions';
 
 export {
-    setLocation
+    setLocation,
+    clearLocation
 } from './locationActions';

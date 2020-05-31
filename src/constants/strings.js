@@ -5,7 +5,8 @@ const location = {
 
 const landing = {
     welcome: `WELCOME TO\nRENTAL MANAGEMENT SYSTEM`,
-    selectLocation: 'Please select location'
+    selectLocation: 'Please select location',
+    reset: 'RESET'
 }
 
 export const constants = {

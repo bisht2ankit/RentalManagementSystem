@@ -44,7 +44,7 @@ export const SubCategories = (props) => {
     )
 }
 
-Categories.propTypes = {
+SubCategories.propTypes = {
     data: PropTypes.array.isRequired,
     visible: PropTypes.bool.isRequired,
     closeSubCategory: PropTypes.func.isRequired

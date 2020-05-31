@@ -17,12 +17,14 @@ export const styles = StyleSheet.create({
         height: '40%'
     },
     header: {
-        marginTop: 10,
-        borderBottomWidth: 1,
-        borderColor: colors.BORDER_COLOR,
         flexDirection: 'row',
         alignItems: 'center',
         height: 50    
+    },
+    border: {
+        borderBottomWidth: 1,
+        borderColor: colors.BORDER_COLOR,
+        marginTop: 10,
     },
     boldTxt: {
         fontSize: fontSize.bigTitle,
@@ -48,5 +50,10 @@ export const styles = StyleSheet.create({
         color: colors.THEME_TEXT_COLOR,
         textAlign: 'center',
         marginTop: 20
+    },
+    btnTxt: {
+        fontSize: fontSize.title,
+        fontWeight : 'bold',
+        color: colors.BUTTON_PRIMARY_COLOR
     }
 });

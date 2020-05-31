@@ -1,4 +1,4 @@
-import { SET_CATEGORIES, SET_SUBCATEGORIES } from "../../actions/types";
+import { SET_CATEGORIES, SET_SUBCATEGORIES, CLEAR_CATEGORIES } from "../../actions/types";
 
 const initialState = {
     categories: [],
@@ -11,6 +11,8 @@ export default (state = initialState, action) => {
             return {...state, categories: action.payload};
         case SET_SUBCATEGORIES:
             return {...state, subCategories: action.payload};
+        case CLEAR_CATEGORIES: 
+            return {categories: [], subCategories: []}
         default:
             return state;
     }

@@ -10,5 +10,10 @@ module.exports = StyleSheet.create({
         shadowRadius: 2,
         shadowOpacity: 0.4,
         backgroundColor: 'white'
+    },
+    spaceBetweenRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     }
 })
