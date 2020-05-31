@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, FlatList, LayoutAnimation, Modal, SafeAreaView, TouchableOpacity, Image } from 'react-native';
+import { View, FlatList, LayoutAnimation, Modal, TouchableOpacity, Image } from 'react-native';
 import locationsArr from '../constants/locations.json';
 import { Accordian } from './Accordian';
 import { styles } from './styles';
@@ -48,6 +48,7 @@ export const Locations = (props) => {
                 </TouchableOpacity>
             </View>
             <FlatList
+                showsVerticalScrollIndicator={false}
                 data={accordianData}
                 keyExtractor={(item, id) => item.dealers_id}
                 renderItem={({ item, index }) => (renderLocations(item, index))}

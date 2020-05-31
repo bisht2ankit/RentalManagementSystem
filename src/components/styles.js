@@ -95,6 +95,12 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center'
     },
+    subFooter: {
+        height: 44,
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+        backgroundColor: colors.FOOTER_BACKGROUND,
+    },
     footerTxt: {
         fontSize: 14,
         color: colors.BUTTON_PRIMARY_COLOR,
@@ -103,5 +109,11 @@ export const styles = StyleSheet.create({
     arrow: {
         width: 10,
         height: 10
+    },
+    rightIcon: {
+        width: 20,
+        height: 20,
+        alignSelf: 'flex-end',
+        marginTop: 10
     }
 });

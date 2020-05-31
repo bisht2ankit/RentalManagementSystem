@@ -1,3 +1,4 @@
 export {
-    setCategories
+    setCategories,
+    setSubCategories
 } from './categoryActions';
