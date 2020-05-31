@@ -31,7 +31,7 @@ export const Locations = (props) => {
             newItem.expanded = false;
             return newItem;
         })
-        arr[index].expanded = true;
+        arr[index].expanded = !accordianData[index].expanded;
         setAccordianData(arr);
     }
 
