@@ -6,7 +6,8 @@ const {width} = Dimensions.get('window');
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        marginTop: 20
     },  
     listView: {
         paddingVertical: 20,
@@ -68,5 +69,39 @@ export const styles = StyleSheet.create({
     closeIcon: {
         width: 16,
         height: 16
+    },
+    banner: {
+        width: '80%',
+        height: '80%',
+        alignSelf: 'center'
+    },
+    card: {
+        width: width/2- 25,
+        height: 240,
+        marginTop: 20,
+        borderWidth: 0.5,
+        borderColor: colors.BORDER_COLOR,
+        justifyContent: 'space-between'
+    },
+    columnWrapperStyle: {
+        justifyContent: 'space-between'
+    },
+    footer: {
+        height: 44,
+        justifyContent: 'center',
+        paddingHorizontal: 10,
+        backgroundColor: colors.FOOTER_BACKGROUND,
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    footerTxt: {
+        fontSize: 14,
+        color: colors.BUTTON_PRIMARY_COLOR,
+        fontWeight: 'bold',
+    },
+    arrow: {
+        width: 10,
+        height: 10
     }
 });

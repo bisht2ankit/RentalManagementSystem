@@ -6,7 +6,11 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.APP_THEME_COLOR,
-        margin: 16
+        marginHorizontal: 16
+    },
+    flexContainer: {
+        flex: 1,
+        backgroundColor: colors.APP_THEME_COLOR,
     },
     appBanner: {
         width: '100%',
@@ -30,5 +34,19 @@ export const styles = StyleSheet.create({
         height: 16,
         marginLeft: 10,
         marginTop: 2
+    },
+    heading: {
+        fontSize: fontSize.bigTitle,
+        fontWeight : 'bold',
+        color: colors.THEME_TEXT_COLOR,
+        textAlign: 'center',
+        marginTop: '50%'
+    },
+    subtitle: {
+        fontSize: fontSize.title,
+        fontWeight : 'bold',
+        color: colors.THEME_TEXT_COLOR,
+        textAlign: 'center',
+        marginTop: 20
     }
 });

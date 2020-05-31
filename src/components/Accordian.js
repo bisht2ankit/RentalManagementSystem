@@ -7,7 +7,7 @@ import downIcon from '../assets/downIcon.png';
 export const Accordian = (props) => {
     const [panelHeight, setViewHeight] = useState(0);
 
-    const {item, index, updateLayoutCallback} = props;
+    const {item, index, updateLayoutCallback, setCategories} = props;
     const { name, branches, expanded } = item;
 
     useEffect(() => {
@@ -29,9 +29,9 @@ export const Accordian = (props) => {
     }
 
     const renderContentItem = (item, index) => {
-        const { name } = item;
+        const { name, categories } = item;
         return (
-            <TouchableOpacity key={index}>
+            <TouchableOpacity key={index} onPress={() => setCategories(categories)}>
                 <Text style={styles.panelTxt}>{name}</Text>
             </TouchableOpacity>
         )

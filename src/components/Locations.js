@@ -7,14 +7,14 @@ import { SearchBar } from './SearchBar';
 import closeIcon from '../assets/close.png';
 
 export const Locations = (props) => {
-    const {visible, closeModal} = props;
+    const {visible, closeModal, setCategories} = props;
 
     let dataArr = locationsArr.data.locations;
 
     const [accordianData, setAccordianData] = useState(dataArr);
 
     renderLocations = (item, index) => {
-        return <Accordian item={item} index={index} updateLayoutCallback={updateLayout} />
+        return <Accordian item={item} index={index} updateLayoutCallback={updateLayout} setCategories={setCategories}/>
     }
 
     const updateLayout = (index) => {
@@ -40,7 +40,7 @@ export const Locations = (props) => {
             visible={visible}
             animationType="slide"
         >
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.row}>
                 <SearchBar searchResultCallback={searchResultCallback}/>
                 <TouchableOpacity onPress={closeModal}>
@@ -52,7 +52,7 @@ export const Locations = (props) => {
                 keyExtractor={(item, id) => item.dealers_id}
                 renderItem={({ item, index }) => (renderLocations(item, index))}
             />
-        </SafeAreaView>
+        </View>
         </Modal>
     )
 }
