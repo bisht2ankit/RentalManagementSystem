@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         borderColor: colors.BORDER_COLOR,
         flexDirection: 'row',
         alignItems: 'center',
-        height: 50,
+        height: 50    
     },
     boldTxt: {
         fontSize: fontSize.bigTitle,

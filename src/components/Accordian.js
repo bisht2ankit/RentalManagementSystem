@@ -38,7 +38,7 @@ export const Accordian = (props) => {
     }
 
     return (
-        <View style={styles.panelView}>
+        <View>
             <TouchableOpacity style={styles.panelHolder} onPress={() => updateLayoutCallback(index)} >
                 <Text style={styles.panelBtnTxt}>{name}</Text>
                 <Image source={expanded ? upIcon : downIcon} style={styles.icon}/>

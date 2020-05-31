@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { View, FlatList, LayoutAnimation } from 'react-native';
+import { View, FlatList, LayoutAnimation, Modal, SafeAreaView, TouchableOpacity, Image } from 'react-native';
 import locationsArr from '../constants/locations.json';
 import { Accordian } from './Accordian';
 import { styles } from './styles';
 import { SearchBar } from './SearchBar';
+import closeIcon from '../assets/close.png';
 
-export const Locations = () => {
+export const Locations = (props) => {
+    const {visible, closeModal} = props;
+
     let dataArr = locationsArr.data.locations;
 
     const [accordianData, setAccordianData] = useState(dataArr);
@@ -33,13 +36,23 @@ export const Locations = () => {
     }
 
     return (
-        <View style={styles.container}>
-            <SearchBar searchResultCallback={searchResultCallback}/>
+        <Modal animationType="fade"
+            visible={visible}
+            animationType="slide"
+        >
+        <SafeAreaView style={styles.container}>
+            <View style={styles.row}>
+                <SearchBar searchResultCallback={searchResultCallback}/>
+                <TouchableOpacity onPress={closeModal}>
+                    <Image source={closeIcon} style={styles.closeIcon}/>
+                </TouchableOpacity>
+            </View>
             <FlatList
                 data={accordianData}
                 keyExtractor={(item, id) => item.dealers_id}
                 renderItem={({ item, index }) => (renderLocations(item, index))}
             />
-        </View>
+        </SafeAreaView>
+        </Modal>
     )
 }
