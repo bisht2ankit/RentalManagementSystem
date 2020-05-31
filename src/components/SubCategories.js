@@ -31,6 +31,7 @@ export const SubCategories = (props) => {
                     <Image source={crossIcon} style={styles.rightIcon} />
                 </TouchableOpacity>
                 <FlatList
+                    showsVerticalScrollIndicator={false}
                     columnWrapperStyle={[styles.columnWrapperStyle]}
                     data={data}
                     numColumns={2}

@@ -25,6 +25,7 @@ export const Categories = (props) => {
     return (
         <FlatList
             columnWrapperStyle={[styles.columnWrapperStyle]}
+            showsVerticalScrollIndicator={false}
             data={data}
             numColumns={2}
             renderItem={({ item, index }) => (renderItem(item, index))}

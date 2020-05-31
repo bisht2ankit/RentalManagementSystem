@@ -5,11 +5,11 @@ import { Locations, Categories, SubCategories } from '../components';
 import { constants } from '../constants/strings';
 import downIcon from '../assets/downIcon.png';
 import { connect } from 'react-redux';
-import { setCategories, setSubCategories } from '../actions';
+import { setCategories, setSubCategories, setLocation } from '../actions';
 
 
 const HomeScreen = (props) => {
-    const { catData, setCategories, setSubCategories } = props;
+    const { catData, setCategories, setSubCategories, setLocation, location } = props;
     const { categories, subCategories } = catData;
     const [isLocVisible, setIsLocVisible] = useState(false);
     const [isSubCatVisible, setIsSubCatVisible] = useState(false);
@@ -19,15 +19,19 @@ const HomeScreen = (props) => {
         setIsLocVisible(false);
     }
 
-    storeSubCategories = (subCategories) => {
+    const storeSubCategories = (subCategories) => {
         setSubCategories(subCategories);
         setIsSubCatVisible(true);
     }
 
+    const storeLocation = (location) => {
+        setLocation(location);
+    }
+    
     const renderHeader = () => {
         return (
             <TouchableOpacity style={styles.header} onPress={() => setIsLocVisible(true)}>
-                <Text style={styles.boldTxt}>{constants.location.selectLocation}</Text>
+                <Text style={styles.boldTxt}>{location ? location : constants.location.selectLocation}</Text>
                 <Image source={downIcon} style={styles.icon} />
             </TouchableOpacity>
         )
@@ -51,7 +55,12 @@ const HomeScreen = (props) => {
     }
 
     const renderLocations = () => {
-        return <Locations visible={isLocVisible} closeModal={() => setIsLocVisible(false)} setCategories={storeCategories} />
+        return <Locations 
+            visible={isLocVisible} 
+            closeModal={() => setIsLocVisible(false)} 
+            setCategories={storeCategories} 
+            setLocation={storeLocation}
+            />
     }
 
     const renderSubCategories = () => {
@@ -70,8 +79,9 @@ const HomeScreen = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        catData: state.categories
+        catData: state.categories,
+        location: state.location
     }
 }
 
-export default connect(mapStateToProps, { setCategories, setSubCategories })(HomeScreen);
+export default connect(mapStateToProps, { setCategories, setSubCategories, setLocation })(HomeScreen);

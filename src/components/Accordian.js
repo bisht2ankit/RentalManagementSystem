@@ -7,7 +7,7 @@ import downIcon from '../assets/downIcon.png';
 export const Accordian = (props) => {
     const [panelHeight, setViewHeight] = useState(0);
 
-    const {item, index, updateLayoutCallback, setCategories} = props;
+    const {item, index, updateLayoutCallback, setCategories, setLocation} = props;
     const { name, branches, expanded } = item;
 
     useEffect(() => {
@@ -21,6 +21,7 @@ export const Accordian = (props) => {
     const renderContent = (branches) => {
         return (
             <FlatList
+                showsVerticalScrollIndicator={false}
                 data={branches}
                 keyExtractor={(item, id) => item.branch_id}
                 renderItem={({ item, index }) => (renderContentItem(item, index))}
@@ -31,7 +32,7 @@ export const Accordian = (props) => {
     const renderContentItem = (item, index) => {
         const { name, categories } = item;
         return (
-            <TouchableOpacity key={index} onPress={() => setCategories(categories)}>
+            <TouchableOpacity key={index} onPress={() => {setCategories(categories), setLocation(name)}}>
                 <Text style={styles.panelTxt}>{name}</Text>
             </TouchableOpacity>
         )

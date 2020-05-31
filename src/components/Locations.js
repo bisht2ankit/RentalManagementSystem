@@ -7,14 +7,20 @@ import { SearchBar } from './SearchBar';
 import closeIcon from '../assets/close.png';
 
 export const Locations = (props) => {
-    const {visible, closeModal, setCategories} = props;
+    const { visible, closeModal, setCategories, setLocation } = props;
 
     let dataArr = locationsArr.data.locations;
 
     const [accordianData, setAccordianData] = useState(dataArr);
 
     renderLocations = (item, index) => {
-        return <Accordian item={item} index={index} updateLayoutCallback={updateLayout} setCategories={setCategories}/>
+        return <Accordian
+            item={item}
+            index={index}
+            updateLayoutCallback={updateLayout}
+            setCategories={setCategories}
+            setLocation={setLocation}
+        />
     }
 
     const updateLayout = (index) => {
@@ -31,7 +37,7 @@ export const Locations = (props) => {
     const searchResultCallback = (query) => {
         const pattern = new RegExp(`.*${query}.*`, 'i');
         const filteredResults = accordianData.filter(item => item.name.match(pattern));
-        if(query.length > 0) setAccordianData(filteredResults)
+        if (query.length > 0) setAccordianData(filteredResults)
         else setAccordianData(dataArr)
     }
 
@@ -40,20 +46,20 @@ export const Locations = (props) => {
             visible={visible}
             animationType="slide"
         >
-        <View style={styles.container}>
-            <View style={styles.row}>
-                <SearchBar searchResultCallback={searchResultCallback}/>
-                <TouchableOpacity onPress={closeModal}>
-                    <Image source={closeIcon} style={styles.closeIcon}/>
-                </TouchableOpacity>
+            <View style={styles.container}>
+                <View style={styles.row}>
+                    <SearchBar searchResultCallback={searchResultCallback} />
+                    <TouchableOpacity onPress={closeModal}>
+                        <Image source={closeIcon} style={styles.closeIcon} />
+                    </TouchableOpacity>
+                </View>
+                <FlatList
+                    showsVerticalScrollIndicator={false}
+                    data={accordianData}
+                    keyExtractor={(item, id) => item.dealers_id}
+                    renderItem={({ item, index }) => (renderLocations(item, index))}
+                />
             </View>
-            <FlatList
-                showsVerticalScrollIndicator={false}
-                data={accordianData}
-                keyExtractor={(item, id) => item.dealers_id}
-                renderItem={({ item, index }) => (renderLocations(item, index))}
-            />
-        </View>
         </Modal>
     )
 }
