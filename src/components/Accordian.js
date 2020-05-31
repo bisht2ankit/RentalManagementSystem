@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, Image, Animated } from 'react-n
 import {styles} from './styles';
 import upIcon from '../assets/upIcon.png';
 import downIcon from '../assets/downIcon.png';
+import PropTypes from 'prop-types';
 
 export const Accordian = (props) => {
     const [panelHeight, setViewHeight] = useState(0);
@@ -49,4 +50,12 @@ export const Accordian = (props) => {
             </Animated.View>
         </View>
     )
+}
+
+Accordian.propTypes = {
+    item: PropTypes.object.isRequired,
+    index: PropTypes.number.isRequired,
+    updateLayoutCallback: PropTypes.func.isRequired,
+    setCategories: PropTypes.func.isRequired,
+    setLocation: PropTypes.func.isRequired
 }

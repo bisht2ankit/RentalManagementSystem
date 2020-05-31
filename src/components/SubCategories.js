@@ -4,6 +4,7 @@ import { styles } from './styles';
 import images from '../constants/images';
 import globalStyles from '../constants/globalStyles';
 import crossIcon from '../assets/close.png';
+import PropTypes from 'prop-types';
 
 export const SubCategories = (props) => {
 
@@ -41,4 +42,10 @@ export const SubCategories = (props) => {
             </View>
         </Modal>
     )
+}
+
+Categories.propTypes = {
+    data: PropTypes.array.isRequired,
+    visible: PropTypes.bool.isRequired,
+    closeSubCategory: PropTypes.func.isRequired
 }

@@ -3,6 +3,7 @@ import { TextInput } from 'react-native';
 import { styles } from './styles';
 import { constants } from '../constants/strings';
 import { colors } from '../constants/colors';
+import PropTypes from 'prop-types';
 
 export const SearchBar = (props) => {
     const { searchResultCallback } = props;
@@ -14,4 +15,8 @@ export const SearchBar = (props) => {
             placeholderTextColor={colors.SEARCH_BAR_BACKGROUND}
         />
     )
+}
+
+SearchBar.propTypes = {
+    searchResultCallback: PropTypes.func.isRequired
 }

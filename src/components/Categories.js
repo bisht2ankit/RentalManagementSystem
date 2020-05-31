@@ -4,6 +4,7 @@ import { styles } from './styles';
 import images from '../constants/images';
 import globalStyles from '../constants/globalStyles';
 import rightArrow from '../assets/rightArrow.png';
+import PropTypes from 'prop-types';
 
 export const Categories = (props) => {
 
@@ -32,4 +33,9 @@ export const Categories = (props) => {
             keyExtractor={(item, index) => index.toString()}
         />
     )
+}
+
+Categories.propTypes = {
+    data: PropTypes.array.isRequired,
+    setSubCategories: PropTypes.func.isRequired
 }

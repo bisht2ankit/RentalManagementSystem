@@ -5,6 +5,7 @@ import { Accordian } from './Accordian';
 import { styles } from './styles';
 import { SearchBar } from './SearchBar';
 import closeIcon from '../assets/close.png';
+import PropTypes from 'prop-types';
 
 export const Locations = (props) => {
     const { visible, closeModal, setCategories, setLocation } = props;
@@ -62,4 +63,11 @@ export const Locations = (props) => {
             </View>
         </Modal>
     )
+}
+
+Locations.propTypes = {
+    visible: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired,
+    setCategories: PropTypes.func.isRequired,
+    setLocation: PropTypes.func.isRequired   
 }
